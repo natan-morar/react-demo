@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 
 function Textarea(props: { element: Frontier.Element; onChange: () => any; value: string }) {
     const [value, setValue] = useState('');

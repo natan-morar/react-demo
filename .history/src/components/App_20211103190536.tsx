@@ -35,7 +35,7 @@ function App() {
             <Section section={section} data={sectionData}></Section>
             <Button
                 action={() => {
-                    console.log('test', sectionId, section);
+                    console.log('test', _sectionId, section);
                     onButtonClick();
                 }}
                 title={buttonTitle}

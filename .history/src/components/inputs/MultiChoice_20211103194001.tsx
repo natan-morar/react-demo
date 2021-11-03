@@ -1,10 +1,10 @@
 import React, { ChangeEventHandler, useState } from 'react';
 
-function Textarea(props: { element: Frontier.Element; onChange: () => any; value: string }) {
+function MultiChoice(props: { onChange: () => any; value: boolean }) {
     const [value, setValue] = useState('');
     const [inputClass, setInputClass] = useState('');
 
-    const validateInput = (newVal: string) => {
+    const validateInput = (newVal: string | boolean) => {
         if (props.element.metadata.required && !newVal) {
             console.error(`Input ${props.element.id} required`);
         }
@@ -22,7 +22,7 @@ function Textarea(props: { element: Frontier.Element; onChange: () => any; value
         }
     };
 
-    const onChange: ChangeEventHandler<HTMLTextAreaElement> = e => {
+    const onChange: ChangeEventHandler<HTMLSelectElement> = e => {
         setValue(e.target.value);
         validateInput(e.target.value);
 
@@ -30,13 +30,19 @@ function Textarea(props: { element: Frontier.Element; onChange: () => any; value
     };
 
     return (
-        <textarea
+        <select
             className={inputClass}
-            onChange={onChange}
             value={value}
+            onChange={onChange}
             placeholder={props.element.metadata.placeholder}
-        ></textarea>
+        >
+            {props.element.metadata.options?.map(opt => (
+                <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                </option>
+            ))}
+        </select>
     );
 }
 
-export default Textarea;
+export default MultiChoice;

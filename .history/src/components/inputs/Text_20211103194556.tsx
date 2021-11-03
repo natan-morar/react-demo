@@ -1,6 +1,6 @@
 import React, { ChangeEventHandler, useState } from 'react';
 
-function Textarea(props: { element: Frontier.Element; onChange: () => any; value: string }) {
+function Text(props: { element: Frontier.Element }) {
     const [value, setValue] = useState('');
     const [inputClass, setInputClass] = useState('');
 
@@ -22,7 +22,7 @@ function Textarea(props: { element: Frontier.Element; onChange: () => any; value
         }
     };
 
-    const onChange: ChangeEventHandler<HTMLTextAreaElement> = e => {
+    const onChange: ChangeEventHandler<HTMLInputElement> = e => {
         setValue(e.target.value);
         validateInput(e.target.value);
 
@@ -30,13 +30,14 @@ function Textarea(props: { element: Frontier.Element; onChange: () => any; value
     };
 
     return (
-        <textarea
+        <input
+            type="text"
             className={inputClass}
             onChange={onChange}
             value={value}
             placeholder={props.element.metadata.placeholder}
-        ></textarea>
+        ></input>
     );
 }
 
-export default Textarea;
+export default Text;

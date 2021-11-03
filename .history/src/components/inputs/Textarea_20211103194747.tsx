@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState } from 'react';
+import React, { useState } from 'react';
 
 function Textarea(props: { element: Frontier.Element; onChange: () => any; value: string }) {
     const [value, setValue] = useState('');
@@ -22,7 +22,7 @@ function Textarea(props: { element: Frontier.Element; onChange: () => any; value
         }
     };
 
-    const onChange: ChangeEventHandler<HTMLTextAreaElement> = e => {
+    const onChange: ChangeEventHandler<HTMLSelectElement> = e => {
         setValue(e.target.value);
         validateInput(e.target.value);
 

@@ -112,13 +112,10 @@ button{
 
 .boolean-input button{
     flex:1;
-    margin:0;
-    background-color: #E9F1F7;
-    color:black;
+    width: 100%;
 }
 
 .boolean-input button.active{
     background-color: #623CEA;
-    color:white;
     
 }

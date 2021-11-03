@@ -2,7 +2,6 @@ import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import BooleanInput from './BooleanInput';
 import MultiChoice from './MultiChoice';
 import Text from './Text';
-import Textarea from './Textarea';
 // import '../../styles/main.css';
 
 function FormField(props: { element: Frontier.Element; value?: any }) {
@@ -44,7 +43,14 @@ function FormField(props: { element: Frontier.Element; value?: any }) {
                 return <Text element={props.element} onChange={() => {}} value={value}></Text>;
 
             case 'textarea':
-                return <Textarea element={props.element} onChange={() => {}} value={value}></Textarea>;
+                return (
+                    <textarea
+                        className={inputClass}
+                        onChange={onChange}
+                        value={value}
+                        placeholder={props.element.metadata.placeholder}
+                    ></textarea>
+                );
 
             case 'multichoice':
                 return <MultiChoice element={props.element} onChange={() => {}} value={value}></MultiChoice>;

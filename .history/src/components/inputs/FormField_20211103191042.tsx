@@ -1,8 +1,4 @@
 import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
-import BooleanInput from './BooleanInput';
-import MultiChoice from './MultiChoice';
-import Text from './Text';
-import Textarea from './Textarea';
 // import '../../styles/main.css';
 
 function FormField(props: { element: Frontier.Element; value?: any }) {
@@ -27,7 +23,7 @@ function FormField(props: { element: Frontier.Element; value?: any }) {
         }
     };
 
-    const onChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | any> = e => {
+    const onChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement> = e => {
         setValue(e.target.value);
         validateInput(e.target.value);
 
@@ -38,16 +34,44 @@ function FormField(props: { element: Frontier.Element; value?: any }) {
         switch (props.element.type) {
             case 'boolean':
                 // return <input type="checkbox" className={inputClass} onChange={onChange} value={value}></input>;
-                return <BooleanInput onChange={onChange} value={value as any}></BooleanInput>;
+                return <Boolean element={props.element}></Boolean>;
 
             case 'text':
-                return <Text element={props.element} onChange={() => {}} value={value}></Text>;
+                return (
+                    <input
+                        type="text"
+                        className={inputClass}
+                        onChange={onChange}
+                        value={value}
+                        placeholder={props.element.metadata.placeholder}
+                    ></input>
+                );
 
             case 'textarea':
-                return <Textarea element={props.element} onChange={() => {}} value={value}></Textarea>;
+                return (
+                    <textarea
+                        className={inputClass}
+                        onChange={onChange}
+                        value={value}
+                        placeholder={props.element.metadata.placeholder}
+                    ></textarea>
+                );
 
             case 'multichoice':
-                return <MultiChoice element={props.element} onChange={() => {}} value={value}></MultiChoice>;
+                return (
+                    <select
+                        className={inputClass}
+                        value={value}
+                        onChange={onChange}
+                        placeholder={props.element.metadata.placeholder}
+                    >
+                        {props.element.metadata.options?.map(opt => (
+                            <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                            </option>
+                        ))}
+                    </select>
+                );
         }
     };
 
