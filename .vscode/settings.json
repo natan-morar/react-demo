@@ -1,0 +1,10 @@
+{
+    "editor.rulers": [80, 120],
+    "files.exclude": {
+        ".history/": true,
+        "**/node_modules": true,
+        "dist/": true,
+        "**/.cache": true
+    },
+    "editor.formatOnSave": true
+}

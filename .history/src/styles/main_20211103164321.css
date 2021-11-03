@@ -1,0 +1,12 @@
+.root{
+    display: flex;
+}
+
+.invalid{
+    border: 1px solid red;
+    background-color: firebrick;
+}
+
+.section{
+
+}
