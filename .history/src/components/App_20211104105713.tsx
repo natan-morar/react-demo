@@ -72,7 +72,7 @@ function App() {
             const input = sectionData[sectionId].inputs[inputKey];
 
             if (!input.valid) {
-                return { success: false, reason: `Input '${inputKey}' is empty or has incorrect data!` };
+                return { success: false, reason: `Input ${inputKey} is empty or has incorrect data!` };
             }
         }
 

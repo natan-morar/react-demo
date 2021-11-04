@@ -8,14 +8,6 @@ $red: rgb(228, 69, 69);
 
 $spacing: 20px;
 
-$button-border-radius: 20px;
-$button-round-radius: 50%;
-$input-border-radius: 6px;
-
-$corner-radius: 20px;
-
-$border-width: 0.5px;
-
 html,
 body {
     height: 100%;
@@ -50,7 +42,7 @@ body {
     padding: $spacing;
     margin: $spacing;
 
-    border-radius: $corner-radius;
+    border-radius: $spacing;
     background-color: white;
 }
 
@@ -58,20 +50,19 @@ body {
     display: flex;
     flex-direction: column;
 
-    margin-bottom: $spacing;
-
     input,
     select,
     textarea {
         height: 35px;
+        margin-bottom: 30px;
 
-        border: $border-width solid;
-        border-radius: $input-border-radius;
+        border: 1px solid;
+        border-radius: 6px;
 
         padding: 0 10px;
 
         &.invalid {
-            border: $border-width solid $red;
+            border: 1px solid $red;
             background-color: $invalid_bg;
         }
     }
@@ -86,7 +77,6 @@ body {
         flex-direction: column;
 
         .list {
-            margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
 
@@ -96,7 +86,7 @@ body {
 
                 background-color: $red;
 
-                border-radius: $button-round-radius;
+                border-radius: 50%;
             }
         }
     }
@@ -114,32 +104,25 @@ body {
 button {
     color: $background_color;
     background-color: $primary_color;
-    border-radius: $button-border-radius;
+    border-radius: 15px;
     /* height: 100%; */
 
     height: 50px;
     flex: 1;
-    margin: 0 $spacing $spacing $spacing;
+    margin: 0 20px 20px 20px;
 }
 
 .steps {
-    padding: 2 * $spacing $spacing 0px;
+    padding: 20px;
+    padding-top: 40px;
 
-    border-radius: 0 0 $corner-radius $corner-radius;
+    border-radius: 0 0 20px 20px;
     background-color: $background_color;
 
     label {
         background-color: $secondary_color;
-        border-radius: $corner-radius;
-        padding: $spacing/4 $spacing/2;
-    }
-
-    > .bar {
-        width: 50%;
-        height: 5px;
-        margin-top: $spacing/2;
-        background: $primary_color;
-        border-radius: $corner-radius;
+        border-radius: 20px;
+        padding: 5px 10px;
     }
 }
 
@@ -157,13 +140,5 @@ button {
             background-color: $primary_color;
             color: white;
         }
-    }
-
-    > :first-child {
-        border-radius: $button-border-radius 0 0 $button-border-radius;
-    }
-
-    > :last-child {
-        border-radius: 0 $button-border-radius $button-border-radius 0;
     }
 }

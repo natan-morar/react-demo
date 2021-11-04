@@ -6,7 +6,7 @@ function Steps(props: { total: number; current: number }) {
             <label>
                 Step {props.current}/{props.total}
             </label>
-            <div className="bar" style={{ width: `${(props.current / props.total) * 100}%` }}></div>
+            <div style={{ width: `${(props.current / props.total) * 100}%` }}></div>
         </div>
     );
 }

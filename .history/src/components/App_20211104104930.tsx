@@ -28,13 +28,8 @@ function App() {
     const [buttonTitle, setButtonTitle] = useState('Next');
 
     const onButtonClick = () => {
-        const result = validateData();
-        if (!result.success) {
-            alert(`
-            Please fill in all inputs marked with *
-            Make sure that all data entered is valid
-            
-            Reason: ${result.reason}`);
+        if (!validateData()) {
+            alert('Please fill in all inputs marked with *\nMake sure that all data entered is valid');
             return;
         }
 
@@ -72,11 +67,11 @@ function App() {
             const input = sectionData[sectionId].inputs[inputKey];
 
             if (!input.valid) {
-                return { success: false, reason: `Input '${inputKey}' is empty or has incorrect data!` };
+                return false;
             }
         }
 
-        return { success: true };
+        return true;
     };
 
     return (

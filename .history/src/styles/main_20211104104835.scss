@@ -14,8 +14,6 @@ $input-border-radius: 6px;
 
 $corner-radius: 20px;
 
-$border-width: 0.5px;
-
 html,
 body {
     height: 100%;
@@ -65,13 +63,13 @@ body {
     textarea {
         height: 35px;
 
-        border: $border-width solid;
+        border: 1px solid;
         border-radius: $input-border-radius;
 
         padding: 0 10px;
 
         &.invalid {
-            border: $border-width solid $red;
+            border: 1px solid $red;
             background-color: $invalid_bg;
         }
     }
@@ -139,7 +137,6 @@ button {
         height: 5px;
         margin-top: $spacing/2;
         background: $primary_color;
-        border-radius: $corner-radius;
     }
 }
 
