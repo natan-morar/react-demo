@@ -49,7 +49,6 @@ body {
 
     padding: $spacing;
     margin: $spacing;
-    margin-bottom: 0;
 
     border-radius: $corner-radius;
     background-color: white;
@@ -110,6 +109,10 @@ body {
 .button {
     display: flex;
     width: 100%;
+
+    button {
+        margin: 0 $spacing $spacing $spacing;
+    }
 }
 
 button {
@@ -198,6 +201,7 @@ button {
         margin: auto 25%;
 
         button {
+            margin-top: 0;
             margin-left: 0;
             margin-right: 0;
         }
