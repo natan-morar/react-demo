@@ -1,0 +1,115 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+
+    color: #54426b;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    background-color: #e7dfc6;
+    overflow: auto;
+}
+
+.app-container {
+    flex: 1;
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.section {
+    flex: 1;
+    display: flex;
+
+    flex-direction: column;
+
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    margin: 20px;
+}
+
+.form-field {
+    display: flex;
+
+    flex-direction: column;
+}
+
+input,
+select,
+textarea {
+    height: 35px;
+    margin-bottom: 30px;
+
+    border: 1px solid;
+    border-radius: 6px;
+
+    padding: 0 10px;
+
+    &.invalid {
+        border: 1px solid red;
+        background-color: #b222223b;
+    }
+}
+
+textarea {
+    height: auto;
+    padding: 10px;
+}
+
+.button {
+    display: flex;
+    width: 100%;
+
+    button {
+        color: #e9f1f7;
+        background-color: #623cea;
+        border-radius: 15px;
+        /* height: 100%; */
+
+        height: 50px;
+        flex: 1;
+        margin: 0 20px 20px 20px;
+    }
+}
+
+.steps {
+    padding: 20px;
+    padding-top: 40px;
+
+    border-radius: 0 0 20px 20px;
+    background-color: #e9f1f7;
+
+    label {
+        background-color: #e7dfc6;
+        border-radius: 20px;
+        padding: 5px 10px;
+    }
+}
+
+.boolean-input {
+    display: flex;
+    align-items: center;
+
+    button {
+        flex: 1;
+        margin: 0;
+        background-color: #e9f1f7;
+        color: black;
+
+        &.active {
+            background-color: #623cea;
+            color: white;
+        }
+    }
+}
